@@ -1,5 +1,7 @@
 package People;
 
+import Items.Item;
+
 /**
  * Person represents the player as they move through the game.
  */
@@ -7,7 +9,8 @@ public class Person {
 	String firstName;
 	String familyName;
 	int xLoc, yLoc;
-
+	public Item[] inventory = new Item [5];
+	public int inventoryIndex = 0;
 
 	public int getxLoc() {
 		return xLoc;
@@ -32,6 +35,10 @@ public class Person {
 		this.xLoc = xLoc;
 		this.yLoc = yLoc;
 	}
-
+	public void addItem(Item add)
+	{
+		inventory[inventoryIndex] = add;
+		inventoryIndex++;
+	}
 
 }

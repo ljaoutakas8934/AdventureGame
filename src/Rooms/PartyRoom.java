@@ -21,6 +21,6 @@ public class PartyRoom extends  Room
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
         System.out.println("You found a room with a party table. You now have a party hat.");
-        inventory [inventoryIndex] = new PartyHat("Triangle Hat", 5);
+        x.addItem(new PartyHat("Triangle Hat", 5));
     }
 }
