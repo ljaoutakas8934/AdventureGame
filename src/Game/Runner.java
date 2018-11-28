@@ -1,6 +1,8 @@
 package Game;
 
+import Items.PartyHat;
 import People.Person;
+import Rooms.PartyRoom;
 import Rooms.Room;
 import Rooms.WinningRoom;
 
@@ -28,7 +30,12 @@ public class Runner {
 		int x = (int)(Math.random()*building.length);
 		int y = (int)(Math.random()*building.length);
 		building[x][y] = new WinningRoom(x, y);
-		 
+		x = (int)(Math.random()*building.length);
+		y = (int)(Math.random()*building.length);
+
+		building [x] [y] = new PartyRoom(x, y);
+
+		System.out.println("The party room is in " + x + ", " + y);
 		 //Setup player 1 and the input scanner
 		Person player1 = new Person("FirstName", "FamilyName", 0,0);
 		building[0][0].enterRoom(player1);
