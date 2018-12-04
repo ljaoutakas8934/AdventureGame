@@ -1,6 +1,5 @@
 package Game;
-
-import Items.PartyHat;
+import Game.Floor;
 import People.Person;
 import Rooms.PartyRoom;
 import Rooms.Room;
@@ -9,121 +8,35 @@ import Rooms.WinningRoom;
 import java.util.Scanner;
 
 public class Runner {
-	
 
 	private static boolean gameOn = true;
-	
+
 	public static void main(String[] args)
 	{
-		Room[][] building = new Room[5][5];
-		
-		//Fill the building with normal rooms
-		for (int x = 0; x<building.length; x++)
-		{
-			for (int y = 0; y < building[x].length; y++)
-			{
-				building[x][y] = new Room(x,y);
-			}
-		}
-		
-		//Create a random winning room.
-		int x = (int)(Math.random()*building.length);
-		int y = (int)(Math.random()*building.length);
-		building[x][y] = new WinningRoom(x, y);
-		x = (int)(Math.random()*building.length);
-		y = (int)(Math.random()*building.length);
+		Floor floor1 = new Floor(new Room [5] [5]);
+		Floor floor2 = new Floor(new Room [5] [5]);
+		Floor floor3 = new Floor(new Room [5] [5]);
+		Floor floor4 = new Floor(new Room [5] [5]);
+		Floor [] temp = {floor1, floor2, floor3,floor4};
+		Board building = new Board(temp);
+		System.out.println(printBoard(building, 4));
 
-		building [x] [y] = new PartyRoom(x, y);
-
-		System.out.println("The party room is in " + x + ", " + y);
-		 //Setup player 1 and the input scanner
-		Person player1 = new Person("FirstName", "FamilyName", 0,0);
-		building[0][0].enterRoom(player1);
-		Scanner in = new Scanner(System.in);
-		while(gameOn)
-		{
-			System.out.println("Where would you like to move? (Choose N, S, E, W)");
-			String move = in.nextLine();
-			if(validMove(move, player1, building))
-			{
-				System.out.println("Your coordinates: row = " + player1.getxLoc() + " col = " + player1.getyLoc());
-				
-			}
-			else {
-				System.out.println("Please choose a valid move.");
-			}
-			
-			
-		}
-		in.close();
 	}
-
-	/**
-	 * Checks that the movement chosen is within the valid game map.
-	 * @param move the move chosen
-	 * @param p person moving
-	 * @param map the 2D array of rooms
-	 * @return
-	 */
-	public static boolean validMove(String move, Person p, Room[][] map)
+	public boolean moveIsValid(String move)
 	{
-		move = move.toLowerCase().trim();
-		switch (move) {
-			case "n":
-				if (p.getxLoc() > 0)
-				{
-					map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-					map[p.getxLoc()-1][p.getyLoc()].enterRoom(p);
-					return true;
-				}
-				else
-				{
-					return false;
-				}
-			case "e":
-				if (p.getyLoc()< map[p.getyLoc()].length -1)
-				{
-					map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-					map[p.getxLoc()][p.getyLoc() + 1].enterRoom(p);
-					return true;
-				}
-				else
-				{
-					return false;
-				}
+		boolean output = false;
 
-			case "s":
-				if (p.getxLoc() < map.length - 1)
-				{
-					map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-					map[p.getxLoc()+1][p.getyLoc()].enterRoom(p);
-					return true;
-				}
-				else
-				{
-					return false;
-				}
 
-			case "w":
-				if (p.getyLoc() > 0)
-				{
-					map[p.getxLoc()][p.getyLoc()].leaveRoom(p);
-					map[p.getxLoc()][p.getyLoc()-1].enterRoom(p);
-					return true;
-				}
-				else
-				{
-					return false;
-				}
-			default:
-				break;
-					
-		}
-		return true;
+
+		return output;
 	}
 	public static void gameOff()
 	{
 		gameOn = false;
+	}
+	public static String printBoard(Board x, int floor)
+	{
+		return x.print(floor);
 	}
 	
 

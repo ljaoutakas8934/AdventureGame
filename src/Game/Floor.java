@@ -16,7 +16,14 @@ public class Floor {
         {
             for (int n = 0; n < Floor[i].length; n++)
             {
-                output = output + Floor [i] [n];
+                if (Floor [i] [n] != null)
+                {
+                    output = output + "[" + Floor[i][n].toString() + "]";
+                }
+                else
+                {
+                    output = output + "[ ]";
+                }
             }
             output = output + "\n";
         }
