@@ -12,6 +12,11 @@ public class Runner {
 
 	public static void main(String[] args)
 	{
+		// Greeting
+		System.out.println("Hello! ");
+		Scanner in = new Scanner(System.in);
+
+
 		Board building = createBoard();
 		System.out.println(building.print(1));
 		System.out.println(building.print(2));
@@ -35,14 +40,14 @@ public class Runner {
 
 
 		// Creates a 2d array of Rooms for floor 1
-		Room [] [] FloorA = new Room [2] [2];
+		Room [] [] FloorA = new Room [8] [8];
 		FloorA [0] [0] = new WinningRoom(0,0);
 		FloorA [0] [1] = new Room(0,1);
 		FloorA [1] [0] = new Room(1,0);
 		FloorA [1] [1] = new Room(1,1);
 		Floor Floor1 = new Floor(FloorA);
 
-		Room [] [] FloorB = new Room [2] [2];
+		Room [] [] FloorB = new Room [8] [8];
 		FloorB [0] [0] = new Room(0,0);
 		FloorB [0] [1] = new WinningRoom(0,1);
 		FloorB [1] [0] = new Room(1,0);
