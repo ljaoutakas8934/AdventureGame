@@ -13,8 +13,8 @@ public class Runner {
 	public static void main(String[] args)
 	{
 		Board building = createBoard();
-
 		System.out.println(building.print(1));
+		System.out.println(building.print(2));
 	}
 	public boolean moveIsValid(String move)
 	{
@@ -42,6 +42,12 @@ public class Runner {
 		FloorA [1] [1] = new Room(1,1);
 		Floor Floor1 = new Floor(FloorA);
 
+		Room [] [] FloorB = new Room [2] [2];
+		FloorB [0] [0] = new Room(0,0);
+		FloorB [0] [1] = new WinningRoom(0,1);
+		FloorB [1] [0] = new Room(1,0);
+		FloorB [1] [1] = new Room(1,1);
+		Floor Floor2 = new Floor(FloorB);
 
 
 
@@ -49,6 +55,7 @@ public class Runner {
 		Floor [] building = new Floor[5];
 		// Sets the floors in the building to the 2d room array.
 		building[1] = Floor1;
+		building[2] = Floor2;
 
 		return new Board(building);
 	}
