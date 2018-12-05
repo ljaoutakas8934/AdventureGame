@@ -8,7 +8,6 @@ public class Floor {
         this.Floor = Floor;
     }
 
-
     public String toString()
     {
         String output = "";

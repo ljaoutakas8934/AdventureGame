@@ -6,7 +6,8 @@ public class Board {
         this.building = building;
     }
 
-    public String print(int floor) {
+    public String print(int floor)
+    {
         return building[floor].toString();
     }
 }

@@ -8,19 +8,13 @@ import Rooms.WinningRoom;
 import java.util.Scanner;
 
 public class Runner {
-
 	private static boolean gameOn = true;
 
 	public static void main(String[] args)
 	{
-		Floor floor1 = new Floor(new Room [5] [5]);
-		Floor floor2 = new Floor(new Room [5] [5]);
-		Floor floor3 = new Floor(new Room [5] [5]);
-		Floor floor4 = new Floor(new Room [5] [5]);
-		Floor [] temp = {floor1, floor2, floor3,floor4};
-		Board building = new Board(temp);
-		System.out.println(printBoard(building, 4));
+		Board building = createBoard();
 
+		System.out.println(building.print(1));
 	}
 	public boolean moveIsValid(String move)
 	{
@@ -30,15 +24,32 @@ public class Runner {
 
 		return output;
 	}
+
 	public static void gameOff()
 	{
 		gameOn = false;
 	}
-	public static String printBoard(Board x, int floor)
+
+	public static Board createBoard ()
 	{
-		return x.print(floor);
+
+
+		// Creates a 2d array of Rooms for floor 1
+		Room [] [] FloorA = new Room [2] [2];
+		FloorA [0] [0] = new WinningRoom(0,0);
+		FloorA [0] [1] = new Room(0,1);
+		FloorA [1] [0] = new Room(1,0);
+		FloorA [1] [1] = new Room(1,1);
+		Floor Floor1 = new Floor(FloorA);
+
+
+
+
+		// Creates a floor array known as building
+		Floor [] building = new Floor[5];
+		// Sets the floors in the building to the 2d room array.
+		building[1] = Floor1;
+
+		return new Board(building);
 	}
-	
-
-
 }
