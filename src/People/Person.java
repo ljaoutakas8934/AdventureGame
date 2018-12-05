@@ -6,8 +6,7 @@ import Items.Item;
  * Person represents the player as they move through the game.
  */
 public class Person {
-	String firstName;
-	String familyName;
+	String name;
 	int xLoc, yLoc;
 	public Item[] inventory = new Item [5];
 	public int inventoryIndex = 0;
@@ -28,10 +27,10 @@ public class Person {
 		this.yLoc = yLoc;
 	}
 
-	public Person (String firstName, String familyName, int xLoc, int yLoc)
+	public Person (String name, int xLoc, int yLoc)
 	{
-		this.firstName = firstName;
-		this.familyName = familyName;
+		this.name = name;
+
 		this.xLoc = xLoc;
 		this.yLoc = yLoc;
 	}

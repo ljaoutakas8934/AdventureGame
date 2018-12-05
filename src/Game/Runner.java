@@ -4,7 +4,7 @@ import People.Person;
 import Rooms.PartyRoom;
 import Rooms.Room;
 import Rooms.WinningRoom;
-
+import java.util.concurrent.TimeUnit;
 import java.util.Scanner;
 
 public class Runner {
@@ -12,9 +12,19 @@ public class Runner {
 
 	public static void main(String[] args)
 	{
+		String input = "";
+		String name = "";
 		// Greeting
-		System.out.println("Hello! ");
+
+		System.out.println("Hello! What is your name?");
 		Scanner in = new Scanner(System.in);
+		name = in.nextLine();
+		Person user = new Person(name,0,0);
+		clearScreen();
+		System.out.println("Ok");
+
+
+
 
 
 		Board building = createBoard();
@@ -63,5 +73,12 @@ public class Runner {
 		building[2] = Floor2;
 
 		return new Board(building);
+	}
+	public static void clearScreen()
+	{
+		for (int i = 0; i < 100; i++)
+		{
+			System.out.println("");
+		}
 	}
 }
