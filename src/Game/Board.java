@@ -1,6 +1,7 @@
 package Game;
 public class Board {
     Floor [] building;
+    
     public Board (Floor [] building)
     {
         this.building = building;
@@ -10,4 +11,13 @@ public class Board {
     {
         return building[floor].toString();
     }
+    
+    public String toString()
+    {
+        for(int i = 0; i < building.length; i++)
+        {
+          return building [i];
+        }
+    }
+    
 }
