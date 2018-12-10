@@ -27,7 +27,8 @@ public class Runner {
 
 
 
-		Board building = createBoard();
+		Board building = new Board(createBoard());
+		return building;
 		System.out.println(building.print(1));
 		System.out.println(building.print(2));
 	}
@@ -45,26 +46,15 @@ public class Runner {
 		gameOn = false;
 	}
 
-	public static Board createBoard ()
+	private static Floor[] createBoard ()
 	{
+		// Creates a room array and sets it to Floor 1
+		Floor Floor1 = new Floor(new Room[8][8]);
+		Floor1.fill();
 
-
-		// Creates a 2d array of Rooms for floor 1
-		Room [] [] FloorA = new Room [8] [8];
-		FloorA [0] [0] = new WinningRoom(0,0);
-		FloorA [0] [1] = new Room(0,1);
-		FloorA [1] [0] = new Room(1,0);
-		FloorA [1] [1] = new Room(1,1);
-		Floor Floor1 = new Floor(FloorA);
-
-		Room [] [] FloorB = new Room [8] [8];
-		FloorB [0] [0] = new Room(0,0);
-		FloorB [0] [1] = new WinningRoom(0,1);
-		FloorB [1] [0] = new Room(1,0);
-		FloorB [1] [1] = new Room(1,1);
-		Floor Floor2 = new Floor(FloorB);
-
-
+		// Creates a room array and sets it to Floor 2
+		Floor Floor2 = new Floor(new Room[8][8]);
+		Floor2.fill();
 
 		// Creates a floor array known as building
 		Floor [] building = new Floor[5];
@@ -72,9 +62,9 @@ public class Runner {
 		building[1] = Floor1;
 		building[2] = Floor2;
 
-		return new Board(building);
+		return building;
 	}
-	public static void clearScreen()
+	private static void clearScreen()
 	{
 		for (int i = 0; i < 100; i++)
 		{

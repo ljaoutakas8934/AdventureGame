@@ -21,11 +21,21 @@ public class Floor {
                 }
                 else
                 {
-                    output = output + "[ ]";
+                    output = output + "[NULL]";
                 }
             }
             output = output + "\n";
         }
         return output;
+    }
+    public void fill()
+    {
+        for (int i = 0; i < Floor.length; i++)
+        {
+            for (int n = 0; n < Floor [i].length; n++)
+            {
+                Floor [i] [n] = new Room(i,n);
+            }
+        }
     }
 }
