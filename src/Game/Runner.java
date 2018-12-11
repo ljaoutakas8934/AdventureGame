@@ -19,7 +19,7 @@ public class Runner {
 		System.out.println("Hello! What is your name?");
 		Scanner in = new Scanner(System.in);
 		name = in.nextLine();
-		Person user = new Person(name,0,0, 0);
+		Person user = new Person(name,0,0, 1);
 		clearScreen();
 		System.out.println("Ok");
 
