@@ -8,7 +8,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.Scanner;
 
 public class Runner {
-	private static boolean gameOn = true;
 	private static Board building = new Board(createBoard());
 	public static void main(String[] args)
 	{
@@ -45,10 +44,6 @@ public class Runner {
 		return output;
 	}
 
-	public static void gameOff()
-	{
-		gameOn = false;
-	}
 	private static boolean turn(Scanner in)
 	{
 		clearScreen();
@@ -59,7 +54,6 @@ public class Runner {
 		{
 			return true;
 		}
-
 
 		return false;
 	}
