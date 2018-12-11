@@ -16,8 +16,9 @@ public class Board {
     {
         for(int i = 0; i < building.length; i++)
         {
-          return building [i];
+          return building [i].toString();
         }
+        return "";
     }
     
 }

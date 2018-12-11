@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Runner {
 	private static boolean gameOn = true;
-
+	private static Board building = new Board(createBoard());
 	public static void main(String[] args)
 	{
 		String input = "";
@@ -19,24 +19,28 @@ public class Runner {
 		System.out.println("Hello! What is your name?");
 		Scanner in = new Scanner(System.in);
 		name = in.nextLine();
-		Person user = new Person(name,0,0);
+		Person user = new Person(name,0,0, 0);
 		clearScreen();
 		System.out.println("Ok");
 
+		boolean a = false;
+		while (true)
+		{
+			a = turn(in);
+			if (a = true)
+				break;
+		}
 
 
 
 
-		Board building = new Board(createBoard());
-		return building;
-		System.out.println(building.print(1));
-		System.out.println(building.print(2));
+
+
+
 	}
 	public boolean moveIsValid(String move)
 	{
 		boolean output = false;
-
-
 
 		return output;
 	}
@@ -45,7 +49,20 @@ public class Runner {
 	{
 		gameOn = false;
 	}
+	private static boolean turn(Scanner in)
+	{
+		clearScreen();
+		System.out.println("This is the current floor:");
+		System.out.println(building.print(Person.getFloor()));
 
+		if (WinningRoom.checkWin())
+		{
+			return true;
+		}
+
+
+		return false;
+	}
 	private static Floor[] createBoard ()
 	{
 		// Creates a room array and sets it to Floor 1

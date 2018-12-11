@@ -5,7 +5,7 @@ import People.Person;
 
 public class WinningRoom extends Room
 {
-
+	private static boolean win = false;
 	public WinningRoom(int x, int y) {
 		super(x, y);
 
@@ -19,6 +19,7 @@ public class WinningRoom extends Room
 	public void enterRoom(Person x) {
 
 		occupant = x;
+		this.win = true;
 		x.setxLoc(this.xLoc);
 		x.setyLoc(this.yLoc);
 		System.out.println("You found the winning room! Ten points for Gryffindor.");
@@ -28,6 +29,12 @@ public class WinningRoom extends Room
 	{
 		return "W";
 	}
-	
+
+	public static boolean checkWin()
+	{
+		if (win)
+			return true;
+		return false;
+	}
 
 }
