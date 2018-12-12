@@ -32,7 +32,7 @@ public class Person {
 
 	public static int getFloor() {return floor;}
 
-	public void setFloor() {this.floor = floor;}
+	public void setFloor(int floor) {this.floor = floor;}
 
 	public static int getHP() {return HP;}
 	public Person (String name, int xLoc, int yLoc, int floor)

@@ -9,6 +9,7 @@ import java.util.Scanner;
 
 public class Runner {
 	private static Board building = new Board(createBoard());
+	private static String input = "";
 	public static void main(String[] args)
 	{
 		String input = "";
@@ -21,14 +22,15 @@ public class Runner {
 		Person user = new Person(name,0,0, 1);
 		clearScreen();
 		System.out.println("Ok");
-
 		boolean a = false;
-		while (true)
-		{
-			a = turn(in);
-			if (a = true)
-				break;
+		System.out.println(building.toString());
+		while (true) {
+			a = turn(in, user);
+			if (!a) {
+			break;
+			}
 		}
+
 			// add a roomAction() method in room and overwrite it. Make science, compsci, math and humanities rooms.
 
 
@@ -37,25 +39,45 @@ public class Runner {
 
 
 	}
-	public boolean moveIsValid(String move)
+	public static void move(String move, int floor)
 	{
-		boolean output = false;
 
-		return output;
+
+		while (true)
+		{
+			if(move.toLowerCase().equals("N"))
+			{
+
+				break;
+			}
+			if(move.toLowerCase().equals("S"))
+			{
+
+				break;
+			}
+			if(move.toLowerCase().equals("E"))
+			{
+
+				break;
+			}
+			if(move.toLowerCase().equals("W"))
+			{
+
+				break;
+			}
+		}
 	}
 
-	private static boolean turn(Scanner in)
+	private static boolean turn(Scanner in, Person x)
 	{
 		clearScreen();
 		System.out.println("This is the current floor:");
 		System.out.println(building.print(Person.getFloor()));
+		System.out.println("Where would you like to go? (N,S,E,W)");
+		move(input, x.getFloor());
 
-		if (WinningRoom.checkWin())
-		{
-			return true;
-		}
-
-		return false;
+		System.out.println(WinningRoom.checkWin());
+		return WinningRoom.checkWin();
 	}
 	private static Floor[] createBoard ()
 	{
@@ -68,10 +90,10 @@ public class Runner {
 		Floor2.fill();
 
 		// Creates a floor array known as building
-		Floor [] building = new Floor[5];
+		Floor [] building = new Floor[2];
 		// Sets the floors in the building to the 2d room array.
-		building[1] = Floor1;
-		building[2] = Floor2;
+		building[0] = Floor1;
+		building[1] = Floor2;
 
 		return building;
 	}

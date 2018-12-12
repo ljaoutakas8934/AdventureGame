@@ -14,11 +14,30 @@ public class Board {
     
     public String toString()
     {
+        String output = "";
         for(int i = 0; i < building.length; i++)
         {
-          return building [i].toString();
+            output = "\n" + "Floor" + i + ":" + "\n";
+            if (building [i].toString() != null)
+            {
+                output = output + building[i].toString();
+            }
+            else
+            {
+                output = output + "null";
+            }
+            System.out.println(i);
+            output = output + "\n";
         }
-        return "";
+        return output;
     }
-    
+    public Floor toFloor()
+    {
+        for(int i = 0; i < building.length; i++)
+        {
+            return building [i];
+        }
+        return building[1];
+    }
+
 }

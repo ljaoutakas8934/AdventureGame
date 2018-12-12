@@ -31,6 +31,7 @@ public class WinningRoom extends Room
 
 	public static boolean checkWin()
 	{
+
 		if (win)
 			return true;
 		return false;
