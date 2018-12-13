@@ -60,13 +60,13 @@ public class Runner {
 			if(move.toLowerCase().equals("w"))
 			{
 
+				return true;
 			}
 			else
 			{
 				System.out.println("Please choose a valid move: N, S, E, W");
 				return false;
 			}
-			return false;
 	}
 
 	private static boolean turn(Scanner in, Person x)
