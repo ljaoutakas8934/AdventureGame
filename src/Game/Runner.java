@@ -84,7 +84,7 @@ public class Runner {
 		if(x.getHP() < 1)
 		{
 			System.out.println("Oh no, your bad test scores made you give up!");
-			System.exit(0);
+			System.exit(1);
 		}
 		System.out.println(WinningRoom.checkWin());
 		return WinningRoom.checkWin();
