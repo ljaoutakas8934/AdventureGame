@@ -28,12 +28,17 @@ public class WinningRoom extends Room
 	{
 		return "W";
 	}
-
+	public static void setWin(boolean a)
+	{
+		win = a;
+	}
 	public static boolean checkWin()
 	{
 
 		if (win)
+		{
 			return true;
+		}
 		return false;
 	}
 

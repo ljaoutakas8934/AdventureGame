@@ -13,7 +13,7 @@ public class Runner {
 		String input = "";
 		String name = "";
 		// Greeting
-
+        WinningRoom.setWin(false);
 		System.out.println("Hello! What is your name?");
 		Scanner in = new Scanner(System.in);
 		name = in.nextLine();
@@ -25,7 +25,7 @@ public class Runner {
 		System.out.println(building.toString());
 		while (true) {
 			a = turn(in, user);
-			if (!a)
+			if (a)
 			{
 				break;
 			}
