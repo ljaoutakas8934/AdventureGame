@@ -3,9 +3,10 @@ package Rooms;
 import Game.Runner;
 import Items.PartyHat;
 import People.Person;
-public class PartyRoom extends  Room
+public class ItemRoom extends  Room
 {
-    public PartyRoom(int x, int y) {
+    public static int encounters = 0;
+    public ItemRoom(int x, int y) {
         super(x, y);
 
     }
@@ -20,7 +21,8 @@ public class PartyRoom extends  Room
         occupant = x;
         x.setxLoc(this.xLoc);
         x.setyLoc(this.yLoc);
-        System.out.println("You found a room with a party table. You now have a party hat.");
+        System.out.println("You enter a room, and find a ");
+
         x.addItem(new PartyHat("Triangle Hat", 5));
     }
 }

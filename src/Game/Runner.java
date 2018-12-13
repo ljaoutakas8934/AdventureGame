@@ -1,10 +1,8 @@
 package Game;
-import Game.Floor;
 import People.Person;
-import Rooms.PartyRoom;
 import Rooms.Room;
 import Rooms.WinningRoom;
-import java.util.concurrent.TimeUnit;
+
 import java.util.Scanner;
 
 public class Runner {
@@ -20,14 +18,16 @@ public class Runner {
 		Scanner in = new Scanner(System.in);
 		name = in.nextLine();
 		Person user = new Person(name,0,0, 1);
+		user.setHP(3);
 		clearScreen();
 		System.out.println("Ok");
 		boolean a = false;
 		System.out.println(building.toString());
 		while (true) {
 			a = turn(in, user);
-			if (!a) {
-			break;
+			if (!a)
+			{
+				break;
 			}
 		}
 
@@ -39,43 +39,53 @@ public class Runner {
 
 
 	}
-	public static void move(String move, int floor)
+	public static boolean move(String move, int floor)
 	{
 
-
-		while (true)
-		{
-			if(move.toLowerCase().equals("N"))
+			if(move.toLowerCase().equals("n"))
 			{
 
-				break;
+				return true;
 			}
-			if(move.toLowerCase().equals("S"))
+			if(move.toLowerCase().equals("s"))
 			{
 
-				break;
+				return true;
 			}
-			if(move.toLowerCase().equals("E"))
+			if(move.toLowerCase().equals("e"))
+			{
+				System.out.println("1112");
+				return true;
+			}
+			if(move.toLowerCase().equals("w"))
 			{
 
-				break;
 			}
-			if(move.toLowerCase().equals("W"))
+			else
 			{
-
-				break;
+				System.out.println("Please choose a valid move: N, S, E, W");
+				return false;
 			}
-		}
+			return false;
 	}
 
 	private static boolean turn(Scanner in, Person x)
 	{
 		clearScreen();
+		input = "";
 		System.out.println("This is the current floor:");
 		System.out.println(building.print(Person.getFloor()));
 		System.out.println("Where would you like to go? (N,S,E,W)");
-		move(input, x.getFloor());
+		while (!move(input,Person.getFloor()))
+		{
+			input = in.nextLine();
 
+		}
+		if(x.getHP() < 1)
+		{
+			System.out.println("Oh no, your bad test scores made you give up!");
+			System.exit(0);
+		}
 		System.out.println(WinningRoom.checkWin());
 		return WinningRoom.checkWin();
 	}
