@@ -39,13 +39,13 @@ public class Runner {
 
 
 	}
-	public static boolean move(String move, int floor)
+	public static boolean move(String move, Floor floor, Person x)
 	{
 
 			if(move.toLowerCase().equals("n"))
 			{
 
-				return true;
+				return floor.canNorth(x);
 			}
 			if(move.toLowerCase().equals("s"))
 			{
@@ -72,12 +72,12 @@ public class Runner {
 	private static boolean turn(Scanner in, Person x)
 	{
 		clearScreen();
-		x.getFloor().getRoom(x).enterRoom(x);
+		building.getFloor(x).getRoom(x).enterRoom(x);
 		input = "";
 		System.out.println("This is the current floor:");
-		System.out.println(building.print(Person.getFloor()));
+		System.out.println(building.print(Person.getFloorNumber()));
 		System.out.println("Where would you like to go? (N,S,E,W)");
-		while (!move(input,Person.getFloor()))
+		while (!move(input,building.getFloor(x),x))
 		{
 			input = in.nextLine();
 

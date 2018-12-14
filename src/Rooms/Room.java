@@ -36,7 +36,7 @@ public class Room {
 		if (occupant != null) {
 			return "x";
 		}
-		else return "b";
+		else return " ";
 	}
 
 	

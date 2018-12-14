@@ -1,4 +1,6 @@
 package Game;
+import People.Person;
+import Rooms.Room;
 public class Board {
     Floor [] building;
     
@@ -31,13 +33,9 @@ public class Board {
         }
         return output;
     }
-    public Floor toFloor()
+    public Floor getFloor(Person x)
     {
-        for(int i = 0; i < building.length; i++)
-        {
-            return building [i];
-        }
-        return building[1];
+        return building[x.getFloorNumber()];
     }
 
 }

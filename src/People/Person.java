@@ -30,7 +30,7 @@ public class Person {
 		this.yLoc = yLoc;
 	}
 
-	public static int getFloor() {return floor;}
+	public static int getFloorNumber() {return floor;}
 
 	public void setFloor(int floor) {this.floor = floor;}
 
