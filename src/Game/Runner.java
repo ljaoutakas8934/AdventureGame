@@ -72,6 +72,7 @@ public class Runner {
 	private static boolean turn(Scanner in, Person x)
 	{
 		clearScreen();
+		x.getFloor().getRoom(x).enterRoom(x);
 		input = "";
 		System.out.println("This is the current floor:");
 		System.out.println(building.print(Person.getFloor()));
