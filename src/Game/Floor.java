@@ -1,5 +1,6 @@
 package Game;
 import Rooms.Room;
+import People.Person;
 public class Floor {
     private Room [] [] Floor;
 
@@ -38,4 +39,22 @@ public class Floor {
             }
         }
     }
+    public boolean canNorth(Person x)
+    {
+        if (x.getyLoc()-1<0)
+        {
+            return false;
+        }
+        else return true;
+    }
+
+    public boolean canSouth(Person x)
+    {
+        if (x.getyLoc()+1>Floor.length-1)
+        {
+            return false;
+        }
+        else return true;
+    }
+
 }
