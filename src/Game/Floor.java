@@ -59,6 +59,7 @@ public class Floor {
 
     public Room getRoom(Person x)
     {
+
         return Floor [x.getxLoc()] [x.getyLoc()];
     }
 
