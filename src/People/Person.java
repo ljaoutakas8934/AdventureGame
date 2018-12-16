@@ -8,38 +8,61 @@ import Items.Item;
 public class Person {
 	private static int HP;
 	private String name;
-	private static int xLoc, yLoc, floor;
+	private static int yLoc, xLoc, floor;
 	private Item[] inventory = new Item [5];
 	private int inventoryIndex = 0;
-
-	public int getxLoc() {
-		return xLoc;
-	}
-
-	public static void setHP (int set) { HP = set; }
-
-	public void setxLoc(int xLoc) {
-		this.xLoc = xLoc;
-	}
 
 	public int getyLoc() {
 		return yLoc;
 	}
 
+	public static void setHP (int set) { HP = set; }
+
+	public void setxLoc(int xLoc) {
+		this.yLoc = xLoc;
+	}
+
+	public int getxLoc() {
+		return xLoc;
+	}
+
 	public void setyLoc(int yLoc) {
-		this.yLoc = yLoc;
+		this.xLoc = yLoc;
 	}
 
 	public static int getFloorNumber() {return floor;}
 
 	public void setFloor(int floor) {this.floor = floor;}
 
+	public void moveNorth()
+	{
+		xLoc = xLoc + 1;
+	}
+
+	public void moveSouth()
+	{
+		xLoc = xLoc + 1;
+	}
+
+	public void moveEast()
+	{
+		yLoc = yLoc + 1;
+	}
+
+	public void moveWest()
+	{
+		yLoc = yLoc - 1;
+	}
+
+
+
+
 	public static int getHP() {return HP;}
-	public Person (String name, int xLoc, int yLoc, int floor)
+	public Person (String name, int yLoc, int xLoc, int floor)
 	{
 		this.name = name;
-		this.xLoc = xLoc;
 		this.yLoc = yLoc;
+		this.xLoc = xLoc;
 		this.floor = floor;
 	}
 

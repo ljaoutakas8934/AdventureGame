@@ -28,7 +28,7 @@ public class Board {
             {
                 output = output + "null";
             }
-            System.out.println(i);
+
             output = output + "\n";
         }
         return output;

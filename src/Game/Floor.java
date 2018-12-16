@@ -43,23 +43,45 @@ public class Floor {
     {
         if (x.getyLoc()-1<0)
         {
+            System.out.println("Something is blocking you from moving north!");
             return false;
         }
-        else return true;
+        return true;
     }
 
     public boolean canSouth(Person x)
     {
-        if (x.getyLoc()+1>Floor.length-1)
+        if (x.getyLoc()>Floor[x.getxLoc()].length+2)
         {
+            System.out.println("Something is blocking you from moving south!");
             return false;
         }
-        else return true;
+        return true;
+    }
+
+    public boolean canEast(Person x)
+    {
+        if (x.getyLoc()>Floor.length+2)
+        {
+            System.out.println("Something is blocking you from moving east!");
+            return false;
+        }
+        return true;
+    }
+
+    public boolean canWest(Person x)
+    {
+        if (x.getyLoc()>Floor.length+2)
+        {
+            System.out.println("Something is blocking you from moving west!");
+            return false;
+        }
+        return true;
     }
 
     public Room getRoom(Person x)
     {
-        return Floor [x.getxLoc()] [x.getyLoc()];
+        return Floor [x.getyLoc()] [x.getxLoc()];
     }
 
 }

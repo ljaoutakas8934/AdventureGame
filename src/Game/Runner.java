@@ -19,16 +19,18 @@ public class Runner {
 		name = in.nextLine();
 		Person user = new Person(name,0,0, 1);
 		user.setHP(3);
-		clearScreen();
-		System.out.println("Ok");
-		boolean a = false;
-		System.out.println(building.toString());
+
+
+		building.getFloor(user).getRoom(user).enterRoom(user);
+		boolean a;
 		while (true) {
 			a = turn(in, user);
 			if (a)
 			{
 				break;
 			}
+			System.out.println("Turn has ended (Main)");
+
 		}
 
 			// add a roomAction() method in room and overwrite it. Make science, compsci, math and humanities rooms.
@@ -41,25 +43,43 @@ public class Runner {
 	}
 	public static boolean move(String move, Floor floor, Person x)
 	{
-
+			System.out.println("X location: " +x.getxLoc() + " Y location: " + x.getyLoc() );
+			building.getFloor(x).getRoom(x).leaveRoom(x);
 			if(move.toLowerCase().equals("n"))
 			{
+				if (floor.canNorth(x))
+				{
+					x.moveNorth();
+					return true;
+				}
+				return false;
 
-				return floor.canNorth(x);
 			}
 			if(move.toLowerCase().equals("s"))
 			{
-
-				return true;
+				if (floor.canSouth(x))
+				{
+					x.moveSouth();
+					return true;
+				}
+				return false;
 			}
 			if(move.toLowerCase().equals("e"))
 			{
-				System.out.println("1112");
-				return true;
+				if (floor.canEast(x))
+				{
+					x.moveEast();
+					return true;
+				}
+				return false;
 			}
 			if(move.toLowerCase().equals("w"))
 			{
-
+				if (floor.canWest(x))
+				{
+					x.moveWest();
+					return true;
+				}
 				return true;
 			}
 			else
@@ -67,27 +87,29 @@ public class Runner {
 				System.out.println("Please choose a valid move: N, S, E, W");
 				return false;
 			}
+
 	}
 
 	private static boolean turn(Scanner in, Person x)
 	{
-		clearScreen();
-		building.getFloor(x).getRoom(x).enterRoom(x);
-		input = "";
-		System.out.println("This is the current floor:");
-		System.out.println(building.print(Person.getFloorNumber()));
-		System.out.println("Where would you like to go? (N,S,E,W)");
-		while (!move(input,building.getFloor(x),x))
-		{
-			input = in.nextLine();
-
-		}
 		if(x.getHP() < 1)
 		{
 			System.out.println("Oh no, your bad test scores made you give up!");
-			System.exit(1);
+			System.exit(0);
 		}
-		System.out.println(WinningRoom.checkWin());
+		clearScreen();
+
+		input = "";
+		System.out.println("This is the current floor:");
+		System.out.println(building.print(Person.getFloorNumber()));
+		while (!move(input,building.getFloor(x),x))
+		{
+			System.out.println("Where would you like to go? (N,S,E,W)");
+			input = in.nextLine();
+		}
+		building.getFloor(x).getRoom(x).enterRoom(x);
+
+
 		return WinningRoom.checkWin();
 	}
 	private static Floor[] createBoard ()
