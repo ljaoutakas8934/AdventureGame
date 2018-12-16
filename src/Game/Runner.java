@@ -71,6 +71,7 @@ public class Runner {
 					x.moveEast();
 					return true;
 				}
+
 				return false;
 			}
 			if(move.toLowerCase().equals("w"))
@@ -80,7 +81,8 @@ public class Runner {
 					x.moveWest();
 					return true;
 				}
-				return true;
+
+				return false;
 			}
 			else
 			{

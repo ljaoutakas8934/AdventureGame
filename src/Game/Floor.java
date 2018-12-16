@@ -29,6 +29,7 @@ public class Floor {
         }
         return output;
     }
+
     public void fill()
     {
         for (int i = 0; i < Floor.length; i++)
@@ -41,7 +42,8 @@ public class Floor {
     }
     public boolean canNorth(Person x)
     {
-        if (x.getyLoc()-1<0)
+
+        if (x.getyLoc()-1 < 0)
         {
             System.out.println("Something is blocking you from moving north!");
             return false;
@@ -51,7 +53,7 @@ public class Floor {
 
     public boolean canSouth(Person x)
     {
-        if (x.getyLoc()>Floor[x.getxLoc()].length+2)
+        if (x.getyLoc() +2 > Floor.length)
         {
             System.out.println("Something is blocking you from moving south!");
             return false;
@@ -61,7 +63,7 @@ public class Floor {
 
     public boolean canEast(Person x)
     {
-        if (x.getyLoc()>Floor.length+2)
+        if (x.getxLoc()+2>Floor[x.getxLoc()].length)
         {
             System.out.println("Something is blocking you from moving east!");
             return false;
@@ -71,7 +73,7 @@ public class Floor {
 
     public boolean canWest(Person x)
     {
-        if (x.getyLoc()>Floor.length+2)
+        if (x.getxLoc()-1<0)
         {
             System.out.println("Something is blocking you from moving west!");
             return false;

@@ -8,7 +8,7 @@ import Items.Item;
 public class Person {
 	private static int HP;
 	private String name;
-	private static int yLoc, xLoc, floor;
+	private static int xLoc, yLoc, floor;
 	private Item[] inventory = new Item [5];
 	private int inventoryIndex = 0;
 
@@ -19,7 +19,7 @@ public class Person {
 	public static void setHP (int set) { HP = set; }
 
 	public void setxLoc(int xLoc) {
-		this.yLoc = xLoc;
+		this.xLoc = xLoc;
 	}
 
 	public int getxLoc() {
@@ -27,7 +27,7 @@ public class Person {
 	}
 
 	public void setyLoc(int yLoc) {
-		this.xLoc = yLoc;
+		this.yLoc = yLoc;
 	}
 
 	public static int getFloorNumber() {return floor;}
@@ -36,33 +36,33 @@ public class Person {
 
 	public void moveNorth()
 	{
-		xLoc = xLoc + 1;
+		yLoc = yLoc -1;
 	}
 
 	public void moveSouth()
 	{
-		xLoc = xLoc + 1;
+		yLoc = yLoc + 1;
 	}
 
 	public void moveEast()
 	{
-		yLoc = yLoc + 1;
+		xLoc = xLoc + 1;
 	}
 
 	public void moveWest()
 	{
-		yLoc = yLoc - 1;
+		xLoc = xLoc - 1;
 	}
 
 
 
 
 	public static int getHP() {return HP;}
-	public Person (String name, int yLoc, int xLoc, int floor)
+	public Person (String name, int xLoc, int yLoc, int floor)
 	{
 		this.name = name;
-		this.yLoc = yLoc;
 		this.xLoc = xLoc;
+		this.yLoc = yLoc;
 		this.floor = floor;
 	}
 
