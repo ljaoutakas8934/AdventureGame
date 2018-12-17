@@ -7,7 +7,7 @@ import Items.Item;
  */
 public class Person {
 	private static int HP;
-	private String name;
+	private static String name;
 	private static int xLoc, yLoc, floor;
 	private Item[] inventory = new Item [5];
 	private int inventoryIndex = 0;
@@ -54,8 +54,10 @@ public class Person {
 		xLoc = xLoc - 1;
 	}
 
-
-
+	public static String getName()
+	{
+		return name;
+	}
 
 	public static int getHP() {return HP;}
 	public Person (String name, int xLoc, int yLoc, int floor)

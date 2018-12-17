@@ -34,7 +34,7 @@ public class Runner {
 
 		}
 
-		// add a roomAction() method in room and overwrite it. Make science, compsci, math and humanities rooms.
+
 
 
 

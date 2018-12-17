@@ -27,7 +27,7 @@ public class Floor {
             }
             output = output + "\n";
         }
-        System.out.println("s: " +Floor[3][3].toString());
+
         return output;
     }
 
