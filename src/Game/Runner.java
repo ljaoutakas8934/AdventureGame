@@ -122,18 +122,18 @@ public class Runner {
 
 		// Creates and fills a floor with empty rooms
 		Floor Floor1 = new Floor(new Room[8][8]);
-		Floor1.fill(1);
-
-		// Adds rooms to Floor 1
+		Floor1.fill();
 		Floor1.addRoom(new ChemistryRoom(),3,3);
+		// Adds rooms to Floor 1
+
 
 
 
 
 		// Creates a room array and sets it to Floor 2
 		Floor Floor2 = new Floor(new Room[8][8]);
-		Floor2.fill(2);
-
+		Floor2.fill();
+		Floor2.addRoom(new WinningRoom(),3,3);
 
 
 
@@ -142,11 +142,11 @@ public class Runner {
 
 
 		// Creates a floor array known as building
-		Floor [] building = new Floor[2];
+		Floor [] building = new Floor[3];
 
 		// Sets the floors in the building to the 2d room array.
-		building[0] = Floor1;
-		building[1] = Floor2;
+		building[1] = Floor1;
+		building[2] = Floor2;
 		return building;
 	}
 	private static void clearScreen()

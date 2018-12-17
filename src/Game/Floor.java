@@ -31,7 +31,7 @@ public class Floor {
         return output;
     }
 
-    public void fill(int FloorNum)
+    public void fill()
     {
         for (int i = 0; i < Floor.length; i++)
         {
