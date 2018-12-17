@@ -6,9 +6,10 @@ import People.Person;
 public class ChemistryRoom extends  Room
 {
     public static int encounters = 0;
-    public ChemistryRoom(int x, int y)
+
+    public ChemistryRoom()
     {
-        super(x, y);
+
     }
 
     /**
@@ -19,13 +20,22 @@ public class ChemistryRoom extends  Room
     public void enterRoom(Person x) {
 
         occupant = x;
-        x.setxLoc(this.xLoc);
-        x.setyLoc(this.yLoc);
-        System.out.println("You enter a chemistry room!");
-        System.out.println("You see a teacher who's busy writing recs.");
-        System.out.println("He comes to you and says:");
-        System.out.println("");
 
-        x.addItem(new PartyHat("Triangle Hat", 5));
+    }
+    @Override
+    public void roomAction(Person x)
+    {
+        System.out.println("You enter a chemistry room.");
+
+
+
+    }
+    @Override
+    public String toString ()
+    {
+        if (occupant != null) {
+            return "x";
+        }
+        else return "C";
     }
 }

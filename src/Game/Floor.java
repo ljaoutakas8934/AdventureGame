@@ -27,16 +27,17 @@ public class Floor {
             }
             output = output + "\n";
         }
+        System.out.println("s: " +Floor[3][3].toString());
         return output;
     }
 
-    public void fill()
+    public void fill(int FloorNum)
     {
         for (int i = 0; i < Floor.length; i++)
         {
             for (int n = 0; n < Floor [i].length; n++)
             {
-                Floor [i] [n] = new Room(i,n);
+                Floor [i] [n] = new Room();
             }
         }
     }
@@ -86,4 +87,8 @@ public class Floor {
         return Floor [x.getyLoc()] [x.getxLoc()];
     }
 
+    public void addRoom (Room a, int x, int y)
+    {
+        Floor [x] [y] = a;
+    }
 }

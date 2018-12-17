@@ -1,14 +1,14 @@
 package Rooms;
-
+import Game.Floor;
+import Game.Helper;
 import People.Person;
 
 public class Room {
 	Person occupant;
-	int xLoc,yLoc;
-	public Room(int x, int y)
+	String [] Responses = {"Looks like you stumbled onto an empty room!", "Well it seems as though there is nothing in this room.", "There is nothing in this room.", "Unfortunately there is nothing to find in this room."};
+	public Room()
 	{
-		xLoc = x;
-		yLoc = y;
+
 	}
 
 	/**
@@ -17,10 +17,18 @@ public class Room {
 	 */
 	public void enterRoom(Person x)
 	{
-		System.out.println("You enter a plain old room");
 		occupant = x;
 	}
 
+	/**
+	 *  This method preforms the room action.
+	 * @param x the User
+	 */
+	public void roomAction(Person x)
+	{
+		System.out.println(Responses[Helper.randomInt(0,Responses.length-1)]);
+		System.out.println("\n\n");
+	}
 	/**
 	 * Removes the player from the room.
 	 * @param x
@@ -36,6 +44,8 @@ public class Room {
 		}
 		else return " ";
 	}
+
+
 
 	
 }

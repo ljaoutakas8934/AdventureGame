@@ -1,7 +1,7 @@
 package Items;
 
 
-public class Item {
+public abstract class Item {
     private String Name;
     private int ScoreVal;
 

@@ -1,5 +1,6 @@
 package Game;
 import People.Person;
+import Rooms.ChemistryRoom;
 import Rooms.Room;
 import Rooms.WinningRoom;
 
@@ -33,7 +34,7 @@ public class Runner {
 
 		}
 
-			// add a roomAction() method in room and overwrite it. Make science, compsci, math and humanities rooms.
+		// add a roomAction() method in room and overwrite it. Make science, compsci, math and humanities rooms.
 
 
 
@@ -43,7 +44,7 @@ public class Runner {
 	}
 	public static boolean move(String move, Floor floor, Person x)
 	{
-			System.out.println("X location: " +x.getxLoc() + " Y location: " + x.getyLoc() );
+			System.out.println("X location: " +x.getxLoc() + " Y location: " + x.getyLoc() + " Floor: " + x.getFloorNumber());
 			building.getFloor(x).getRoom(x).leaveRoom(x);
 			if(move.toLowerCase().equals("n"))
 			{
@@ -87,6 +88,7 @@ public class Runner {
 			else
 			{
 				System.out.println("Please choose a valid move: N, S, E, W");
+
 				return false;
 			}
 
@@ -104,9 +106,10 @@ public class Runner {
 		input = "";
 		System.out.println("This is the current floor:");
 		System.out.println(building.print(Person.getFloorNumber()));
+		building.getFloor(x).getRoom(x).roomAction(x);
 		while (!move(input,building.getFloor(x),x))
 		{
-			System.out.println("Where would you like to go? (N,S,E,W)");
+
 			input = in.nextLine();
 		}
 		building.getFloor(x).getRoom(x).enterRoom(x);
@@ -116,20 +119,34 @@ public class Runner {
 	}
 	private static Floor[] createBoard ()
 	{
-		// Creates a room array and sets it to Floor 1
+
+		// Creates and fills a floor with empty rooms
 		Floor Floor1 = new Floor(new Room[8][8]);
-		Floor1.fill();
+		Floor1.fill(1);
+
+		// Adds rooms to Floor 1
+		Floor1.addRoom(new ChemistryRoom(),3,3);
+
+
+
 
 		// Creates a room array and sets it to Floor 2
 		Floor Floor2 = new Floor(new Room[8][8]);
-		Floor2.fill();
+		Floor2.fill(2);
+
+
+
+
+
+
+
 
 		// Creates a floor array known as building
 		Floor [] building = new Floor[2];
+
 		// Sets the floors in the building to the 2d room array.
 		building[0] = Floor1;
 		building[1] = Floor2;
-
 		return building;
 	}
 	private static void clearScreen()

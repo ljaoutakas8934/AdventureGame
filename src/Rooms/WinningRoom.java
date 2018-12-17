@@ -6,10 +6,7 @@ import People.Person;
 public class WinningRoom extends Room
 {
 	private static boolean win = false;
-	public WinningRoom(int x, int y) {
-		super(x, y);
 
-	}
 
 	/**
 	 * Triggers the game ending conditions.
@@ -20,8 +17,6 @@ public class WinningRoom extends Room
 
 		occupant = x;
 		this.win = true;
-		x.setxLoc(this.xLoc);
-		x.setyLoc(this.yLoc);
 		System.out.println("You found the winning room! Ten points for Gryffindor.");
 	}
 	public String toString ()
@@ -35,11 +30,7 @@ public class WinningRoom extends Room
 	public static boolean checkWin()
 	{
 
-		if (win)
-		{
-			return true;
-		}
-		return false;
+		return win;
 	}
 
 }
