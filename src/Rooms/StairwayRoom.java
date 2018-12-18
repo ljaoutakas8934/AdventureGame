@@ -20,7 +20,7 @@ public class StairwayRoom extends Room
     }
     public void roomAction(Person x)
     {
-        System.out.println("It Looks like a locked door.");
+        System.out.println("It Looks like a locked door. If only there was some way to open it....");
     }
     public String toString()
     {
