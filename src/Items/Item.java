@@ -11,5 +11,6 @@ public abstract class Item implements Use {
     public abstract String getName();
     public abstract void consume();
     public abstract void defaultAction();
+    public abstract int getCode();
 
 }

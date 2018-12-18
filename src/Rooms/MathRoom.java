@@ -1,6 +1,7 @@
 package Rooms;
 
 import Game.Helper;
+import Items.key;
 import People.Person;
 
 import java.util.Scanner;
@@ -118,7 +119,7 @@ public class MathRoom extends  Room
                 input = in.nextLine();
                 if (answers[currentInt].equals(input.toLowerCase()))
                 {
-                    System.out.println("Well done! you got the question right. Press enter for the next question.");
+                    System.out.println("Well done! you got the question right. Press enter to continue.");
                     input = in.nextLine();
                     score++;
                 }
@@ -134,6 +135,13 @@ public class MathRoom extends  Room
             System.out.println("You did very bad on the quiz, so you got kicked out of the school. Try again next time!");
             System.exit(0);
         }
+        System.out.println("Very Well done! I can now give you the key to the third floor!");
+        if (Person.inventory[0] == null)
+            x.setItem(new key(2),0);
+        else if (Person.inventory[1] == null)
+            x.setItem(new key(2),1);
+        else
+            x.setItem(new key(2),1);
 
         this.answered = answered;
 

@@ -177,7 +177,7 @@ public class Runner {
 		Floor1.addRoom(new ChemistryRoom(),3,3);
 		Floor1.addRoom(new StartRoom(), 0,0);
 		Floor1.addRoom(new Room(new Pencil()),2,4);
-		Floor1.addRoom(new StairwayRoom(1),5,7);
+		Floor1.addRoom(new StairwayRoom(1,2),5,7);
 		// Adds rooms to Floor 1
 
 
@@ -188,17 +188,13 @@ public class Runner {
 		Floor Floor2 = new Floor(new Room[8][8]);
 		Floor2.fill();
 		Floor2.addRoom(new MathRoom(),3,3);
-
-
-		Floor Floor3 = new Floor(new Room[8][8]);
-		Floor3.fill();
-		Floor3.addRoom(new WinningRoom(),3,3);
+		Floor2.addRoom(new WinningRoom(2),1,1);
 
 
 
 
 		// Creates a floor array known as building
-		Floor [] building = new Floor[4];
+		Floor [] building = new Floor[3];
 
 		// Sets the floors in the building to the 2d room array.
 		building[1] = Floor1;
@@ -233,7 +229,7 @@ public class Runner {
 			System.out.println("Would you like to (a) consume or (b) use or (c) drop it? (Press enter twice to lock in your answer)");
 			input = in.nextLine();
 			if (input.toLowerCase().equals("a")) x.getItem(index).consume();
-			if (input.toLowerCase().equals("b")) room.use(x.getItem(index));
+			if (input.toLowerCase().equals("b")) room.use(x.getItem(index), x);
 			if (input.toLowerCase().equals("c")) {
 				room.drop(x.getItem(index), x);
 				x.setItem(null,index);

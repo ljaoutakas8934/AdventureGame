@@ -1,7 +1,11 @@
 package Items;
 
+import People.Person;
+
 public class key  extends Item implements Use
 {
+
+    Person occupant;
     private int code;
     public key (int code)
     {
@@ -26,6 +30,6 @@ public class key  extends Item implements Use
 
     public String getName()
     {
-        return "Key";
+        return "Key" + code;
     }
 }

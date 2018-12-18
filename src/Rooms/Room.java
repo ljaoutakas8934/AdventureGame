@@ -66,7 +66,7 @@ public class Room {
 		else return "i";
 	}
 
-	public void use(Item a)
+	public void use(Item a, Person x)
 	{
 		a.defaultAction();
 	}

@@ -19,4 +19,9 @@ public class Pencil extends Item implements Use
     public void defaultAction() {
         System.out.println("You can't find anything to do here with a pencil. Press enter to continue.");
     }
+
+    public int getCode()
+    {
+        return -1;
+    }
 }
