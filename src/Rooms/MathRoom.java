@@ -136,6 +136,7 @@ public class MathRoom extends  Room
             System.exit(0);
         }
         System.out.println("Very Well done! I can now give you the key to the third floor!");
+        done = true;
         if (Person.inventory[0] == null)
             x.setItem(new key(2),0);
         else if (Person.inventory[1] == null)

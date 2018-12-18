@@ -146,6 +146,7 @@ public class ChemistryRoom extends  Room
         else
         {
             System.out.println("Congratulations on completing my quiz! Here is a key to take you up the stairs!");
+            done = true;
             if (Person.inventory[0] == null)
                 x.setItem(new key(1),0);
             else
