@@ -3,7 +3,6 @@ import Items.Pencil;
 import People.Person;
 import Rooms.ChemistryRoom;
 import Rooms.Room;
-import Rooms.ItemRoom;
 import Rooms.StartRoom;
 import Rooms.WinningRoom;
 
@@ -45,6 +44,14 @@ public class Runner {
 
 
 	}
+
+	/**
+	 * The method to process the user's input.
+	 * @param move The original input.
+	 * @param floor The floor that the user is on
+	 * @param x The user.
+	 * @return A boolean signifying if the user moved.
+	 */
 	public static boolean move(String move, Floor floor, Person x)
 	{
 			System.out.println("X location: " +x.getxLoc() + " Y location: " + x.getyLoc() + " Floor: " + x.getFloorNumber());
@@ -146,7 +153,6 @@ public class Runner {
 		building.getFloor(x).getRoom(x).roomAction(x);
 		while (!move(input,building.getFloor(x),x))
 		{
-
 			input = in.nextLine();
 		}
 		building.getFloor(x).getRoom(x).enterRoom(x);
@@ -162,7 +168,7 @@ public class Runner {
 		Floor1.fill();
 		Floor1.addRoom(new ChemistryRoom(),3,3);
 		Floor1.addRoom(new StartRoom(), 0,0);
-		Floor1.addRoom(new ItemRoom(new Pencil()),2,4);
+		Floor1.addRoom(new Room(new Pencil()),2,4);
 		// Adds rooms to Floor 1
 
 
@@ -198,7 +204,7 @@ public class Runner {
 	private static void inv (int index, Person x, Scanner in, Room room)
 	{
 		if (x.getItem(index) != null) {
-			System.out.println("You have selected the '" + x.getItem(0).getName() + "'");
+			System.out.println("You have selected the '" + x.getItem(index).getName() + "'");
 			System.out.println("Would you like to (a) consume or (b) use or (c) drop it?");
 			input = in.nextLine();
 			if (input.toLowerCase().equals("a")) x.getItem(index).consume();

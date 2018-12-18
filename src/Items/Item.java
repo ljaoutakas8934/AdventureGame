@@ -1,7 +1,7 @@
 package Items;
 
 
-public abstract class Item {
+public abstract class Item implements Use {
 
     public Item()
     {

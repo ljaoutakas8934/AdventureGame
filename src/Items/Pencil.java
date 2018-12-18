@@ -1,6 +1,6 @@
 package Items;
 
-public class Pencil extends Item
+public class Pencil extends Item implements Use
 {
 
     public String getName()
@@ -17,6 +17,6 @@ public class Pencil extends Item
 
     @Override
     public void defaultAction() {
-        System.out.println("You can't find anything to do here with a pencil.");
+        System.out.println("You can't find anything to do here with a pencil. Press enter to continue.");
     }
 }

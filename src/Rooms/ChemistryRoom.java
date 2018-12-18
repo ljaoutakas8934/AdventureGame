@@ -50,7 +50,7 @@ public class ChemistryRoom extends  Room
             }
             else
             {
-                System.out.println("He kicks you out of his room, and you are so sad that you drop out of school.");
+                System.out.println("You are so discouraged about not correctly writing your name that you drop out of school.");
                 System.exit(0);
             }
         }
