@@ -2,14 +2,27 @@ package Rooms;
 import Game.Floor;
 import Game.Helper;
 import People.Person;
-
+import Items.Item;
 public class Room {
 	Person occupant;
+	Item item;
+	Item temp;
 	String [] Responses = {"Looks like you stumbled onto an empty room!", "Well it seems as though there is nothing in this room.", "There is nothing in this room.", "Unfortunately there is nothing to find in this room."};
 	public Room()
 	{
 
 	}
+	public Room (Item s)
+	{
+		this.item = item;
+	}
+
+
+	public void use (Item y)
+	{
+		y.defaultAction();
+	}
+
 
 	/**
 	 * Method controls the results when a person enters this room.
@@ -45,6 +58,11 @@ public class Room {
 		else return " ";
 	}
 
+	public void drop(Item New, Person x)
+	{
+		item = New;
+
+	}
 
 
 	

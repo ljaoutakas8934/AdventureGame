@@ -74,6 +74,30 @@ public class Person {
 		inventoryIndex++;
 	}
 
+	public String printInventory()
+	{
+		String output = "";
+		for (int i = 0; i < inventory.length; i++)
+		{
+			if (inventory[i] != null)
+			{
+				output = output + i + ":" + "[" +inventory[i].getName() +"]";
+			}
+			else
+			{
+				output = output + i + ":" + "[" +" " +"]";
+			}
+
+		}
+		return output;
+	}
+
+	public Item getItem (int index)
+	{
+		return inventory[index];
+	}
+
+
 
 
 

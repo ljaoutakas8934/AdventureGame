@@ -1,7 +1,5 @@
 package Rooms;
 
-import Game.Runner;
-import Items.PartyHat;
 import People.Person;
 
 import java.util.Scanner;

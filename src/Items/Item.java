@@ -2,22 +2,14 @@ package Items;
 
 
 public abstract class Item {
-    private String Name;
-    private int ScoreVal;
 
-    public Item(String Name, int ScoreVal)
+    public Item()
     {
-        this.Name = Name;
-        this.ScoreVal = ScoreVal;
+
     }
 
-    public String getName()
-    {
-        return this.Name;
-    }
+    public abstract String getName();
+    public abstract void consume();
+    public abstract void defaultAction();
 
-    public int getScoreVal()
-    {
-        return ScoreVal;
-    }
 }
