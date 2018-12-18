@@ -68,10 +68,9 @@ public class Person {
 		this.floor = floor;
 	}
 
-	public void addItem(Item add)
+	public void setItem(Item add, int index)
 	{
-		inventory[inventoryIndex] = add;
-		inventoryIndex++;
+		inventory[index] = add;
 	}
 
 	public String printInventory()

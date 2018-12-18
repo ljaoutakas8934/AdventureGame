@@ -1,7 +1,10 @@
 package Game;
+import Items.Pencil;
 import People.Person;
 import Rooms.ChemistryRoom;
 import Rooms.Room;
+import Rooms.ItemRoom;
+import Rooms.StartRoom;
 import Rooms.WinningRoom;
 
 import java.util.Scanner;
@@ -158,6 +161,8 @@ public class Runner {
 		Floor Floor1 = new Floor(new Room[8][8]);
 		Floor1.fill();
 		Floor1.addRoom(new ChemistryRoom(),3,3);
+		Floor1.addRoom(new StartRoom(), 0,0);
+		Floor1.addRoom(new ItemRoom(new Pencil()),2,4);
 		// Adds rooms to Floor 1
 
 

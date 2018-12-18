@@ -1,8 +1,10 @@
 package Rooms;
 import Game.Floor;
 import Game.Helper;
+import Items.Pencil;
 import People.Person;
 import Items.Item;
+import java.util.Scanner;
 public class Room {
 	Person occupant;
 	Item item;
@@ -11,10 +13,6 @@ public class Room {
 	public Room()
 	{
 
-	}
-	public Room (Item s)
-	{
-		this.item = item;
 	}
 
 
@@ -39,8 +37,12 @@ public class Room {
 	 */
 	public void roomAction(Person x)
 	{
-		System.out.println(Responses[Helper.randomInt(0,Responses.length-1)]);
+		String input;
+		int numIn;
+		Scanner in = new Scanner(System.in);
+		System.out.println(Responses[Helper.randomInt(0, Responses.length - 1)]);
 		System.out.println("\n\n");
+
 	}
 	/**
 	 * Removes the player from the room.
@@ -55,12 +57,23 @@ public class Room {
 		if (occupant != null) {
 			return "x";
 		}
-		else return " ";
+
+		return " ";
 	}
 
 	public void drop(Item New, Person x)
 	{
 		item = New;
+
+	}
+
+	public void pickUp(int index,Person x)
+	{
+		temp = item;
+		item = x.getItem(index);
+		x.setItem(temp,index);
+
+
 
 	}
 
