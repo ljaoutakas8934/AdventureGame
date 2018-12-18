@@ -2,15 +2,17 @@ package Items;
 
 public class key  extends Item implements Use
 {
-    int num;
-    public key (int num)
+    private int code;
+    public key (int code)
     {
-        this.num = num;
+        this.code = code;
     }
 
-    public int getNum() {
-        return num;
+    public int getCode()
+    {
+        return this.code;
     }
+
     public void consume()
     {
         System.out.println("I'm not going to let you eat a key...");

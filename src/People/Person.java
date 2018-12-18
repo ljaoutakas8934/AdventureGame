@@ -9,7 +9,7 @@ public class Person {
 	private static int HP;
 	private static String name;
 	private static int xLoc, yLoc, floor;
-	private Item[] inventory = new Item [3];
+	public static Item[] inventory = new Item [3];
 	private int inventoryIndex = 0;
 
 	public int getyLoc() {

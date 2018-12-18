@@ -1,6 +1,8 @@
 package Rooms;
 
 import Game.Helper;
+import Items.Pencil;
+import Items.key;
 import People.Person;
 
 import java.util.Scanner;
@@ -12,6 +14,7 @@ public class ChemistryRoom extends  Room
     private String [] Answers = new String[6];
     private int [] answered = new int [6];
     private static int Qindex = 0;
+    private boolean met = false;
     /**
      * default constructor.
      */
@@ -55,31 +58,37 @@ public class ChemistryRoom extends  Room
     @Override
     public void roomAction(Person x) {
         if (!done) {
-            Scanner in = new Scanner(System.in);
-            String input = "";
-            System.out.println("You enter a chemistry room.");
-            System.out.println("You see a middle aged man busy writing recommendations.");
-            System.out.println("He comes up to you and asks:");
-            System.out.println("''What is your name?''");
-            input = in.nextLine();
-            if (input.toLowerCase().contains(x.getName().toLowerCase())) {
-                System.out.println("He says:");
-                System.out.println("Nice to meet you," + x.getName());
-            } else {
-                System.out.println("He says:");
-                System.out.println("Some how I feel as though thats not right!");
-                System.out.println("I'll give you one more chance, what is your name?");
+            if (!met) {
+                Scanner in = new Scanner(System.in);
+                String input = "";
+                System.out.println("You enter a chemistry room.");
+                System.out.println("You see a middle aged man busy writing recommendations.");
+                System.out.println("He comes up to you and asks:");
+                System.out.println("''What is your name?''");
                 input = in.nextLine();
                 if (input.toLowerCase().contains(x.getName().toLowerCase())) {
-                    System.out.println("Alright, Nice to meet you.");
+                    System.out.println("He says:");
+                    System.out.println("Nice to meet you, " + x.getName());
                 } else {
-                    System.out.println("You are so discouraged about not correctly writing your name that you drop out of school.");
-                    System.exit(0);
+                    System.out.println("He says:");
+                    System.out.println("Some how I feel as though thats not right!");
+                    System.out.println("I'll give you one more chance, what is your name?");
+                    input = in.nextLine();
+                    if (input.toLowerCase().contains(x.getName().toLowerCase())) {
+                        System.out.println("Alright, Nice to meet you.");
+                    } else {
+                        System.out.println("You are so discouraged about not correctly writing your name that you drop out of school.");
+                        System.exit(0);
+                    }
+
                 }
-
+                met = true;
             }
+            if (Helper.itemArrayContains(new Pencil(),Person.inventory))
             quiz(Questions, Answers, answered, "Chemistry", x);
-
+            else{
+                System.out.println("You don't have a pencil, so you cannot take a quiz.");
+            }
         }
         else
         {
@@ -118,8 +127,9 @@ public class ChemistryRoom extends  Room
                 input = in.nextLine();
                 if (answers[currentInt].equals(input.toLowerCase()))
                 {
-                    System.out.println("Well done! you got the question right. Press enter for the next question.");
+                    System.out.println("Well done! you got the question right. Press enter to continue.");
                     input = in.nextLine();
+                    score++;
                 }
                 else
                 {
@@ -132,6 +142,14 @@ public class ChemistryRoom extends  Room
         {
             System.out.println("You did very bad on the quiz, so you got kicked out of the school. Try again next time!");
             System.exit(0);
+        }
+        else
+        {
+            System.out.println("Congratulations on completing my quiz! Here is a key to take you up the stairs!");
+            if (Person.inventory[0] == null)
+                x.setItem(new key(1),0);
+            else
+                x.setItem(new key(1),1);
         }
         this.answered = answered;
 

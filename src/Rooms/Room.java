@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class Room {
 	Person occupant;
 	Item item = null;
-	Item temp;
+
 	String [] Responses = {"Looks like you stumbled onto an empty room!", "Well it seems as though there is nothing in this room.", "There is nothing in this room.", "Unfortunately there is nothing to find in this room."};
 	public Room ()
 	{
@@ -81,15 +81,6 @@ public class Room {
 
 	}
 
-	public void pickUp(int index,Person x)
-	{
-		temp = item;
-		item = x.getItem(index);
-		x.setItem(temp,index);
-
-
-
-	}
 
 
 
