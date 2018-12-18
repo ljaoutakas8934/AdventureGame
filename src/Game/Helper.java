@@ -5,4 +5,15 @@ public class Helper {
     {
         return (int)(Math.random()*(higher-lower+1))+lower;
     }
+
+    public static Boolean intArrayContains (int test, int [] k )
+    {
+        for (int i = 0; i < k.length; i++)
+        {
+            if (k[i] == test) return true;
+        }
+        return false;
+    }
+
+
 }

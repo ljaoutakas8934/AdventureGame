@@ -138,6 +138,12 @@ public class Runner {
 
 	}
 
+	/**
+	 * The turn method that repeats in the main method.
+	 * @param in The scanner
+	 * @param x The user
+	 * @return A boolean that says if the person has won.
+	 */
 	private static boolean turn(Scanner in, Person x)
 	{
 		if(x.getHP() < 1)
@@ -160,6 +166,11 @@ public class Runner {
 
 		return WinningRoom.checkWin();
 	}
+
+	/**
+	 * Creates the actual board.
+	 * @return a Floor[] that is the board.
+	 */
 	private static Floor[] createBoard ()
 	{
 
@@ -194,6 +205,10 @@ public class Runner {
 		building[2] = Floor2;
 		return building;
 	}
+
+	/**
+	 * Spams the runner with blank lines.
+	 */
 	private static void clearScreen()
 	{
 		for (int i = 0; i < 100; i++)
@@ -201,6 +216,15 @@ public class Runner {
 			System.out.println("");
 		}
 	}
+
+
+	/**
+	 * Inventory method.
+	 * @param index The index of inventory to be edited.
+	 * @param x The user.
+	 * @param in The scanner.
+	 * @param room The current room.
+	 */
 	private static void inv (int index, Person x, Scanner in, Room room)
 	{
 		if (x.getItem(index) != null) {
