@@ -4,6 +4,9 @@ import People.Person;
 
 public class StartRoom extends Room
 {
+    /**
+     * Default constructor
+     */
     public StartRoom()
     {
 
@@ -16,6 +19,10 @@ public class StartRoom extends Room
 
     }
 
+    /**
+     * Prints what you see on the map
+     * @return The string signifing the room.
+     */
     public String toString ()
     {
         if (occupant != null) {

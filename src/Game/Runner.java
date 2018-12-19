@@ -148,7 +148,7 @@ public class Runner {
 			System.out.println("Oh no, your bad test scores made you give up!");
 			System.exit(0);
 		}
-		clearScreen();
+		clearScreen(95);
 
 		input = "";
 		System.out.println("This is the current floor:");
@@ -209,6 +209,14 @@ public class Runner {
 	private static void clearScreen()
 	{
 		for (int i = 0; i < 100; i++)
+		{
+			System.out.println("");
+		}
+	}
+
+	private static void clearScreen( int x)
+	{
+		for (int i = 0; i < x; i++)
 		{
 			System.out.println("");
 		}

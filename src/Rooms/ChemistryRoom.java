@@ -98,6 +98,9 @@ public class ChemistryRoom extends  Room
         }
     }
     @Override
+    /**
+     * The
+     */
     public String toString ()
     {
         if (occupant != null) {
@@ -107,7 +110,7 @@ public class ChemistryRoom extends  Room
     }
 
     /**
-     * Method that has the quiz.
+     * Method that has the quiz. It uses the arrays established at the beginning of the class.
      */
     public void quiz(String [] questions, String [] answers, int [] answered, String className, Person x)
     {

@@ -13,15 +13,25 @@ public class StairwayRoom extends Room
         this.targetFloor = targetFloor;
     }
 
+    /**
+     * Sets the person in the room to x.
+     * @param x The user.
+     */
     public void enterRoom(Person x)
     {
 
         occupant = x;
     }
+
+    /**
+     * What prints when you enter a room.
+     * @param x The user in the room
+     */
     public void roomAction(Person x)
     {
         System.out.println("It Looks like a locked door. If only there was some way to open it....");
     }
+
     public String toString()
     {
         if (occupant != null) {
